@@ -22,7 +22,6 @@ require_once 'elements/header.php';
     <?= $error ?>
 </div>
 <?php else : ?>
-
 <div class="card mb-4">
     <div class="card-body">
         <div class="card-title">
@@ -57,8 +56,6 @@ require_once 'elements/header.php';
         </ul>
     </div>
 </div>
-
 <?php endif ?>
-<?php
-require_once 'elements/footer.php';
-?>
+
+<?php require_once 'elements/footer.php';?>
