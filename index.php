@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once 'class/OpenWeather.php';
-$weather = new OpenWeather('3d04fb24f668b9a6f6f096eeffe21705');
+$weather = new OpenWeather('');
 $error = null;
 try {
     // $data = explode(' '); // to trigger PHP errors

@@ -2,6 +2,11 @@
 require_once 'CurlException.php';
 require_once 'HTTPException.php';
 require_once 'UnauthorizedHTTPException.php';
+
+/**
+ * Manage OpenWeather API
+ * @author ldrt
+ */
 class OpenWeather {
     private $apiKey;
 
@@ -9,7 +14,13 @@ class OpenWeather {
     {
         $this->apiKey = $apiKey;
     }
-
+    
+    /**
+     * Get the current weather forecast
+     *
+     * @param  string $location City,Country (Country is optional)
+     * @return array
+     */
     public function getTodayForecast(string $location) : ?array
     {
         $data = $this->callAPI("weather?q={$location}");
@@ -20,7 +31,13 @@ class OpenWeather {
             'date' => new DateTime()
         ];
     }
-    
+        
+    /**
+     *  Get the weather forecast for the 5 next days
+     *
+     * @param  string $location City,Country (Country is optional)
+     * @return array
+     */
     public function getForecast(string $location) : ?array
     {
         $data = $this->callAPI("forecast?q={$location}");
@@ -36,7 +53,16 @@ class OpenWeather {
         }
         return $result;
     }
-
+    
+    /**
+     * Call the Open Weather Map API
+     *
+     * @param  string $endpoint action to call (weather, forecast etc.)
+     * @return array
+     * @throws CurlException  
+     * @throws UnauthorizedHTTPException 
+     * @throws HTTPException 
+     */
     private function callAPI(string $endpoint) : ?array
     {
         // init
