@@ -1,4 +1,7 @@
 <?php
+namespace Ldrt\Blog;
+use \DateTime;
+
 class Post {
 
     public $id;

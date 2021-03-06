@@ -1,5 +1,6 @@
 <?php
 require_once '../class/Post.php';
+use Ldrt\Blog\Post; // use <namespace\class> as <alias>
 
 $pdo = new PDO('sqlite:../data.db', null, null, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -20,7 +21,8 @@ try {
 
     $query = $pdo->query('SELECT * FROM posts');
     /** @var Post[] */
-    $posts = $query->fetchAll(PDO::FETCH_CLASS, 'Post');
+    $posts = $query->fetchAll(PDO::FETCH_CLASS, 'Ldrt\Blog\Post');
+    // PDO doesn't look up aliased class name nor resolve current namespace, so must specify it
 } catch (PDOException $e) {
     $error = $e->getMessage();
 }
