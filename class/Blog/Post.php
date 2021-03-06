@@ -21,6 +21,13 @@ class Post {
     {
         return substr($this->content, 0, 150);
     }
+
+    public function getBody() : string
+    {
+        $parseDown = new \Parsedown();
+        $parseDown->setSafeMode(true); // security to avoid parsing html
+        return $parseDown->text($this->content);
+    }
 }
 
 ?>

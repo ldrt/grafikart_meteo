@@ -1,9 +1,14 @@
 {
     "name": "ldrt/meteo",
-    "require": {},
+    "require": {
+        "erusev/parsedown": "^1.7"
+    },
     "autoload": {
         "psr-4" : {
             "Ldrt\\": "class/"
         }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.2"
     }
 }

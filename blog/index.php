@@ -43,7 +43,7 @@ require_once '../elements/header.php';
     </h2>
     <p class="small text-muted">Created on <?= $post->created_at->format('d/m/Y H:i') ?></p>
     <p>
-        <?= nl2br(htmlentities($post->getExcerpt())) ?>
+        <?= $post->getBody() ?>
     </p>
     <?php endforeach ?>
 
