@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
-require_once 'class/OpenWeather.php';
+
+use Ldrt\Exception\CurlException;
+use Ldrt\Exception\HTTPException;
+use Ldrt\OpenWeather;
+
+require_once 'vendor/autoload.php'; 
+
 $weather = new OpenWeather('');
 $error = null;
 try {

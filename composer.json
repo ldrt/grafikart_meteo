@@ -1,0 +1,9 @@
+{
+    "name": "ldrt/meteo",
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "Ldrt\\": "class/"
+        }
+    }
+}

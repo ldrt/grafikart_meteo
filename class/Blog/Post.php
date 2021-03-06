@@ -1,6 +1,6 @@
 <?php
 namespace Ldrt\Blog;
-use \DateTime;
+use DateTime;
 
 class Post {
 

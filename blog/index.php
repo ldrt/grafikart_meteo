@@ -1,5 +1,5 @@
 <?php
-require_once '../class/Post.php';
+require '../vendor/autoload.php'; // autoloader to avoid to "require" and "use" classes
 use Ldrt\Blog\Post; // use <namespace\class> as <alias>
 
 $pdo = new PDO('sqlite:../data.db', null, null, [
@@ -21,7 +21,7 @@ try {
 
     $query = $pdo->query('SELECT * FROM posts');
     /** @var Post[] */
-    $posts = $query->fetchAll(PDO::FETCH_CLASS, 'Ldrt\Blog\Post');
+    $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
     // PDO doesn't look up aliased class name nor resolve current namespace, so must specify it
 } catch (PDOException $e) {
     $error = $e->getMessage();
